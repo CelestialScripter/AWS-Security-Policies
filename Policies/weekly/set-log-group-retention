@@ -1,0 +1,38 @@
+policies:
+  - name: set-log-group-retention
+    description: "Set log group retention to 365 days"
+    resource: log-group
+    filters:
+      - or:
+        - type: value
+          key: retentionInDays
+          value: null
+        - type: value
+          key: retentionInDays
+          op: lt
+          value: 365
+    actions:
+      - type: retention
+        days: 365
+      - type: webhook
+        url: REPLACE_WEBHOOK_HERE
+        body:
+          attachments:
+            - fallback: "CloudCustodian Policy Violation"
+              title: "${policy.description}"
+              color: "danger"
+              fields:
+                - title: "Priority"
+                  value: "LOW"
+                  short: true
+                - title: "LogGroup Name"
+                  value: "${resource.logGroupName}"
+                  short: true
+                - title: "Region"
+                  value: "${region}"
+                  short: true
+                - title: "Resource Link"
+                  value: "https://console.aws.amazon.com/cloudwatch/home?region=${region}#logsV2:log-groups/${resource.logGroupName}"
+                  short: false
+              footer: "Powered By CldCvr DevSecOps"
+              footer_icon: "https://a.cldcvr.com/cldcvr/favicons/64px.png"
