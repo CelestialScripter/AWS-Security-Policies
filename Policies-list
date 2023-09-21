@@ -1,0 +1,78 @@
+Security Policy: r-security-group-ingress-mysql-access-replace-vpn-ip
+Description: Ensure that security groups in VPC restrict inbound MySQL access from 0.0.0.0/0 and replace it with VPN IP.
+Resource Type: Security Group
+
+Security Policy: route53-domain-has-autorenew-enabled
+Description: Ensure that AWS Route 53 domains have AutoRenew enabled.
+Resource Type: Route 53 Domain
+
+Security Policy: r-security-group-ingress-rdp-access-replace-vpn-ip
+Description: Ensure that security groups in VPC restrict inbound RDP access from 0.0.0.0/0 and replace it with VPN IP.
+Resource Type: Security Group
+
+Security Policy: r-security-group-ingress-ftp20-access-replace-vpn-ip
+Description: Ensure that security groups in VPC restrict inbound FTP20 access from 0.0.0.0/0 and replace it with VPN IP.
+Resource Type: Security Group
+
+Security Policy: r-security-group-ingress-ssh-access-replace-vpn-ip
+Description: Ensure that security groups in VPC restrict inbound SSH access from 0.0.0.0/0 and replace it with VPN IP.
+Resource Type: Security Group
+
+Security Policy: a-vpn-tunnels-status-verify
+Description: Ensure that both VPN tunnels provided by AWS Site-to-Site VPN are in the UP status.
+Resource Type: AWS VPN Connection
+
+Security Policy: r-security-group-ingress-ahsp-access-replace-vpn-ip
+Description: Ensure that security groups in VPC restrict inbound AHSP access from 0.0.0.0/0 and replace it with VPN IP.
+Resource Type: Security Group
+
+Security Policy: r-security-group-ingress-all-tcp-access-replace-vpn-ip
+Description: Ensure that security groups in VPC restrict inbound TCP access from 0.0.0.0/0 and replace it with VPN IP.
+Resource Type: Security Group
+
+Security Policy: r-security-group-ingress-all-udp-access-replace-vpn-ip
+Description: Ensure that security groups in VPC restrict inbound UDP access from 0.0.0.0/0 and replace it with VPN IP.
+Resource Type: Security Group
+
+Security Policy: route53-reg-domain-has-transfer-lock
+Description: Ensure that AWS Route 53 Registered domains have Transfer lock enabled.
+Resource Type: Route 53 Domain
+
+Security Policy: iam-access-key1-rotated-90-days-or-less
+Description: Ensure that access key1 is rotated every 90 days or less.
+Resource Type: IAM User
+
+Security Policy: no-cmk-is-marked-for-deletion
+Description: Ensure that CMK (Key Management Service) is not marked for deletion.
+Resource Type: KMS Key
+
+Security Policy: root-account-mfa-enabled-check
+Description: Ensure that Multi-Factor Authentication (MFA) is enabled for the root account.
+Resource Type: AWS Account
+
+Security Policy: cmk-use-external-key-material
+Description: Ensure that CMK (Key Management Service) uses external key material.
+Resource Type: KMS Key
+
+Security Policy: aws-kms-key-rotation-is-enabled
+Description: Ensure that rotation for customer-created CMKs (Key Management Service) is enabled.
+Resource Type: AWS KMS Key
+
+Security Policy: unencrypted-unattached-ebs-are-deleted
+Description: Ensure that unattached EBS (Elastic Block Store) volumes are encrypted.
+Resource Type: EBS Volume
+
+Security Policy: aws-lambda-version-latest-not-custom
+Description: Ensure that AWS Lambda version is $LATEST and not a custom version.
+Resource Type: AWS Lambda Function
+
+Security Policy: a-sagemaker-direct-internet-access
+Description: Ensure that Amazon SageMaker Notebook Instances do not have direct internet access.
+Resource Type: Amazon SageMaker Notebook Instance
+
+Security Policy: iam-45-days-unused-keys
+Description: Ensure that access keys are disabled or deleted if they remain unused for 45 days.
+Resource Type: IAM User
+
+Security Policy: a-secret-manager-no-aws-default-kmsKey-used-check
+Description: Ensure that no AWS default K
